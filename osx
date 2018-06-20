@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function usage {
+	echo "USAGE: $(basename $0) app command"
+	echo "    finder showallfiles : enable show all files in finder"
+	exit 1
+}
+
+if [ $# -lt 1 ]; then
+	usage
+fi
+
+if [ "$1" == "finder" -a "$2" == "showallfiles" ]; then
+	echo "Enableing $2 in $1..."
+	defaults write com.apple.finder AppleShowAllFiles YES
+fi
+
+echo "done."
+exit 0
